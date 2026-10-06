@@ -1,0 +1,41 @@
+<% layout("/layouts/boilerplate") %>
+
+<h1>Explore Stays</h1>
+
+<div class="listing-container">
+
+    <% for(let list of listings) { %>
+
+        <a
+            href="/listings/<%= list._id %>"
+            class="listing-link"
+        >
+
+            <div class="listing-card">
+
+                <img
+                    src="<%= list.image %>"
+                    class="listing-image"
+                    alt="listing_image"
+                >
+
+                <div class="listing-info">
+
+                    <h3>
+                        <%= list.title %>
+                    </h3>
+
+                    <p>
+                        ₹<%= list.price.toLocaleString("en-IN") %>
+                        for 2 nights
+                    </p>
+
+                </div>
+
+            </div>
+
+        </a>
+
+    <% } %>
+
+</div>

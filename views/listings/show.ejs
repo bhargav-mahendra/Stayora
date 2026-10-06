@@ -1,0 +1,62 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="listing-details-page">
+
+    <div class="listing-details-card">
+
+        <!-- Listing Image -->
+        <img
+            src="<%= list.image %>"
+            alt="<%= list.title %>"
+            class="details-image"
+        >
+
+        <!-- Listing Information -->
+        <div class="details-content">
+
+            <p class="details-location">
+                <i class="fa-solid fa-location-dot"></i>
+                <%= list.location %>, <%= list.country %>
+            </p>
+
+            <h1><%= list.title %></h1>
+
+            <p class="details-description">
+                <%= list.description %>
+            </p>
+
+            <div class="details-price">
+                ₹<%= list.price.toLocaleString("en-IN") %>
+                <span>/ night</span>
+            </div>
+
+            <hr>
+
+            <!-- Actions -->
+            <div class="details-actions">
+
+                <a
+                    href="/listing/<%= list._id %>/edit"
+                    class="edit-listing-btn"
+                >
+                    <i class="fa-solid fa-pen"></i>
+                    Edit Listing
+                </a>
+
+                <form
+                    method="post"
+                    action="/listings/<%= list._id %>?_method=DELETE"
+                >
+                    <button type="submit" class="delete-listing-btn">
+                        <i class="fa-solid fa-trash"></i>
+                        Delete Listing
+                    </button>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
